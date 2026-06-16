@@ -1,4 +1,3 @@
-import React from 'react';
 
 function Applications({ applications }) {
   return (

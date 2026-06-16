@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 function NewProjectModal({ show, onClose, onAddProject }) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [skills, setSkills] = useState('');
-  const [slots, setSlots] = useState(3);
+  const [slots, setSlots] = useState(4);
 
   if (!show) return null;
 
@@ -21,20 +21,15 @@ function NewProjectModal({ show, onClose, onAddProject }) {
     onAddProject({
       title,
       description,
-      skills: skillsArray.length > 0 ? skillsArray : ['React'],
-      slots: parseInt(slots) || 3,
-      owner: 'You',
-      time: 'Just now',
-      interested: 0,
-      initial: 'Y',
-      color: 'purple'
+      skillsNeeded: skillsArray.length > 0 ? skillsArray : ['React'],
+      maxTeamSize: parseInt(slots) || 4
     });
 
     // Reset form
     setTitle('');
     setDescription('');
     setSkills('');
-    setSlots(3);
+    setSlots(4);
     onClose();
   };
 
@@ -113,12 +108,12 @@ function NewProjectModal({ show, onClose, onAddProject }) {
             />
           </div>
           <div className="mb-4">
-            <label className="form-label fw-semibold">Open Slots</label>
+            <label className="form-label fw-semibold">Max Team Size</label>
             <input 
               type="number" 
               className="form-control" 
-              min="1" 
-              max="10" 
+              min="2" 
+              max="20" 
               value={slots} 
               onChange={e => setSlots(e.target.value)} 
             />

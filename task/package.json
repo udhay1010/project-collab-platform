@@ -1,0 +1,12 @@
+{
+  "name": "magnetic-marketing-downloader",
+  "version": "1.0.0",
+  "description": "Scrape and download subscription resources from Magnetic Marketing",
+  "main": "scraper.js",
+  "scripts": {
+    "start": "node scraper.js"
+  },
+  "dependencies": {
+    "playwright": "^1.49.0"
+  }
+}
